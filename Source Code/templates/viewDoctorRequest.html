@@ -1,0 +1,53 @@
+{% include 'bhead.html' %}
+<div class="text-center h4 mt-5 color=text-danger">View Doctor Requests</div>
+<div class="row">
+    {% for Request in Requests: %}
+    <div class="col-md-3">
+        <div class="card mt-3 ms-3 p-3">
+            <tr>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">BloodBank Name</div>
+                    <div class="h6">{% set bloodBank = get_bloodbank_by_Id(Request['bloodbank_id'])%}
+                        {{bloodBank['name']}}
+                    </div>
+                    </div>
+                    <div class="mt-1">
+                        <div class="text-muted" style="font-style:70%">Doctor Name</div>
+                        <div class="h6">{% set doctor = get_doctor_Id(Request['doctor_id'])%}
+                            {{doctor['name']}}</div>
+                    </div>
+                    <div class="mt-1">
+                        <div class="text-muted" style="font-style:70%">Blood Group</div>
+                        <div class="h6">{{Request['bloodGroup']}}</div>
+                    </div>
+                    <div class="mt-1">
+                        <div class="text-muted" style="font-style:70%">Number of Units</div>
+                        <div class="h6">{{Request['Number_Of_Units']}}</div>
+                    </div>
+                    <div class="mt-1">
+                        <div class="text-muted" style="font-style:70%">Requirement Before</div>
+                        <div class="h6">{{Request['Requirement_before']}}</div>
+                    </div>
+                    <div class="mt-1">
+                        <div class="text-muted" style="font-style:70%">Date_of_Request</div>
+                        <div class="h6">{{Request['Date_of_Request']}}</div>
+                    </div>
+                    <div class="mt-1">
+                        <div class="text-muted" style="font-style:70%">Status</div>
+                        <div class="h6">{{Request['status']}}</div>
+                    </div>
+                    {% if Request['status'] == 'Doctor Requested': %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="assignBlood?Doctor_Request_id={{Request['_id']}}&bloodGroup={{Request['bloodGroup']}}" class="btn btn-success w-100 ">Assign</a>
+                            </div>
+                            <div class="col-md-6">
+                                 <a href="rejectDoctorRequest?Doctor_Request_id={{Request['_id']}}" class="btn btn-danger w-100">Reject</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                 </div>
+             </tr>
+        </div>
+    {% endfor %}
+</div>

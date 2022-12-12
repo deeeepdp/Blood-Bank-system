@@ -1,0 +1,39 @@
+{% include 'ahead.html' %}
+<div class="row">
+    <div class="col-md-4"></div>
+        <div class="mt-1 p-4">
+        <div class="card mt-1 p-3">
+            <div class="text-center h3 color= text-danger">View Blood Bank</div>
+        <table class="table table-bordered">
+            <thead class="col-md-3">
+            <tr>
+                <th class="text-center">Blood Bank Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">PhoneNo</th>
+                <th class="text-center">Location</th>
+                <th class="text-center">Address</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for bloodBank in BloodBank: %}
+                    <tr>
+                        <td class="text-center">{{bloodBank['name']}}</td>
+                        <td class="text-center">{{bloodBank['email']}}</td>
+                        <td class="text-center">{{bloodBank['phoneno']}}</td>
+                        <td class="text-center">{{bloodBank['location']}}</td>
+                        <td class="text-center">{{bloodBank['address']}}</td>
+                        <td class="text-center">{{bloodBank['status']}}</td>
+                        <td>
+                            {% if bloodBank['status'] == 'Unauthorised': %}
+                            <a href="authorisedBloodBank?bloodbank_id={{bloodBank['_id']}}" class="btn btn-success w-100">Authorised</a>
+                             {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{% include 'bhead.html' %}
+<div class="text-center h4 mt-5 color=text-danger">View Blood Campaigns</div>
+<div class="row">
+    {% for campaign in campaigns: %}
+    <div class="col-md-3">
+        <div class="card mt-3 ms-3 p-5">
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">BloodBank Name</div>
+                    <div class="h6">{% set bloodBank = get_bloodbank_by_Id(campaign['bloodbank_id'])%}
+                        {{bloodBank['name']}}
+                    </div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Campaign Title</div>
+                    <div class="h6">{{campaign['title']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Address</div>
+                    <div class="h6">{{campaign['address']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Campaign Date</div>
+                    <div class="h6">{{campaign['dateTime']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">About Campaign</div>
+                    <div class="h6">{{campaign['about']}}</div>
+                </div>
+               <div>
+                   {% if campaign['status'] == 'Campaign Publishment': %}
+                       <a href="addDonor?campaign_id={{campaign['_id']}}" class="btn btn-success w-100">Add Donor</a>
+                   {% endif %}
+               </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

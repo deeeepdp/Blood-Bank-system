@@ -1,0 +1,41 @@
+{% include 'ahead.html' %}
+<div class="row">
+    <div class="col-md-4"></div>
+        <div class="mt-1 p-4">
+        <div class="card mt-2 p-3">
+            <div class="text-center h3 color= text-danger">View Doctors</div>
+        <table class="table table-bordered">
+            <thead class="col-md-4">
+            <tr>
+                <th class="text-center">Doctor Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">PhoneNo</th>
+                <th class="text-center">Specialization</th>
+                <th class="text-center">Qualification</th>
+                <th class="text-center">Hospital Name</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for doctor in Doctors: %}
+                    <tr>
+                        <td class="text-center">{{doctor['name']}}</td>
+                        <td class="text-center">{{doctor['email']}}</td>
+                        <td class="text-center">{{doctor['phoneno']}}</td>
+                        <td class="text-center">{{doctor['specialization']}}</td>
+                        <td class="text-center">{{doctor['qualification']}}</td>
+                        <td class="text-center">{{doctor['hospitalName']}}</td>
+                        <td class="text-center">{{doctor['status']}}</td>
+                        <td>
+                            {% if doctor['status']=='Unauthorized' %}
+                            <a href="authorisedDoctor?doctor_id={{doctor['_id']}}" class="btn btn-success w-100">Authorised</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

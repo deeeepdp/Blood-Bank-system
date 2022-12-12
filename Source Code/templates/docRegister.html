@@ -1,0 +1,46 @@
+{% include 'head.html' %}
+<div class="container">
+  <div class="card mt-5 p-5">
+    <form action="docRegister1" method="post">
+    <div class="text-center h4">Doctor Register</div>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="mt-3">
+            <label for="name"class="form-label">Doctor Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Name" required class="form-control">
+          </div>
+          <div class="mt-3">
+            <label for="phoneno"class="form-label">Phone Number</label>
+          <input type="number" name="phoneno" id="phoneno" placeholder="Enter Phone Number" required class="form-control">
+        </div>
+        <div class="mt-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" id="email" placeholder="Enter Email" required class="form-control">
+        </div>
+          <div class="mt-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" id="password" placeholder="Enter Password" required class="form-control">
+        </div>
+    </div>
+     <div class="col-md-6">
+
+        <div class="mt-3">
+          <label for="specialization" class="form-label">Specialization</label>
+          <input type="text" name="specialization" id="specialization" placeholder="Enter Specialization" required class="form-control">
+        </div>
+         <div class="mt-3">
+          <label for="qualification" class="form-label">Qualification</label>
+          <input type="text" name="qualification" id="qualification" placeholder="Enter Qualification" required class="form-control">
+        </div>
+        <div class="mt-3">
+          <label for="hospitalName" class="form-label">Hospital Name</label>
+          <input type="text" name="hospitalName" id="hospitalName" placeholder="Enter Hospital Name" required class="form-control">
+        </div>
+        <div class="mt-5">
+          <input type="submit" value="Register" class="btn btn-success w-100">
+        </div>
+     </div>
+    </div>
+   </form>
+  </div>
+</div>

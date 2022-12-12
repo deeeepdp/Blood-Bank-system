@@ -1,0 +1,35 @@
+{% include 'dhead.html' %}
+<div class="text-center h4 mt-5 color=text-danger">View Blood Banks</div>
+<div class="row">
+    {% for bloodBank in bloodBanks: %}
+    <div class="col-md-3">
+        <div class="card mt-3 ms-3 p-3">
+            <tr>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">BloodBank Name</div>
+                    <div class="h6">{{bloodBank['name']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Email</div>
+                    <div class="h6">{{bloodBank['email']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Phone Number</div>
+                    <div class="h6">{{bloodBank['phoneno']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Location</div>
+                    <div class="h6">{{bloodBank['location']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Address</div>
+                    <div class="h6">{{bloodBank['address']}}</div>
+                </div>
+                <div class="mt-1">
+                    <a href="doctorRequest?bloodbank_id={{bloodBank['_id']}}" class="btn btn-success w-100">Send Request</a>
+                </div>
+            </tr>
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,37 @@
+{% include 'head.html' %}
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-5 p-5">
+      <form action="donorReg1" method="post">
+        <input type="hidden" name="email" value="{{email}}">
+        <div class="text-center h4">Donor Registration</div>
+        <div class="mt-3">
+          <label for="donorname" class="form-label">Donor Name</label>
+          <input type="text" name="donorname" id="donorname" placeholder="Enter Name" required class="form-control">
+        </div>
+        <div class="mt-3">
+          <label for="phoneno" class="form-label">Phone Number</label>
+          <input type="number" name="phoneno" id="phoneno" placeholder="Enter Phone Number" required class="form-control">
+        </div>
+        <div class="mt-3">
+          <label for="bloodGroup">Blood Group</label>
+          <select name="bloodGroup" id="bloodGroup" required class="form-control">
+            <option value="">Blood Group</option>
+            <option value="O Positive">O+</option>
+            <option value="A Positive">A+</option>
+            <option value="B Positive">B+</option>
+            <option value="AB Positive">AB+</option>
+            <option value="O Negative">O-</option>
+            <option value="A Negative">A-</option>
+            <option value="B Negative">B-</option>
+            <option value="AB Negative">AB-</option>
+          </select>
+        </div>
+        <div class="mt-3">
+          <input type="submit" value="Donor Register" class="btn btn-success w-100">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

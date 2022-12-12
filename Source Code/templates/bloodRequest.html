@@ -1,0 +1,54 @@
+{% include 'bhead.html' %}
+<div class="text-center h4 mt-5 color=text-danger">Blood Requests</div>
+<div class="row">
+    {% for schedule in schedules: %}
+    <div class="col-md-3">
+        <div class="card mt-3 ms-3 p-5">
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">BloodBank Name</div>
+                    <div class="h6">{% set bloodBank = get_bloodbank_by_Id(schedule['bloodbank_id'])%}
+                        {{bloodBank['name']}}
+                    </div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Donor Name</div>
+                    <div class="h6">{% set donor = get_donor_Id(schedule['donor_id'])%}
+                        {{donor['donorname']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Appointment Date</div>
+                    <div class="h6">{{schedule['dateTime']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Blood Group</div>
+                    <div class="h6">{{schedule['bloodGroup']}}</div>
+                </div>
+                <div class="mt-1">
+                    <div class="text-muted" style="font-style:70%">Status</div>
+                    <div class="h6">
+                        {% if schedule['status'] =='Blood Bank Accepted': %}
+                            Accepted by blood bank
+                        {% else: %}
+                        {{schedule['status']}}
+                        {% endif %}
+                    </div>
+                </div>
+                {% if schedule['status'] == 'Donor Requested': %}
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a href="acceptBloodRequest?schedule_id={{schedule['_id']}}" class="btn btn-success w-100 ">Accept</a>
+                      </div>
+                       <div class="col-md-6">
+                        <a href="rejectBloodRequest?schedule_id={{schedule['_id']}}" class="btn btn-danger w-100">Reject</a>
+                      </div>
+                    </div>
+                {% endif %}
+            {% if schedule['status'] == 'Blood Bank Accepted': %}
+                <div>
+                    <a href="bloodDonated?schedule_id={{schedule['_id']}}" class="btn btn-success w-100">Make as Donated</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>

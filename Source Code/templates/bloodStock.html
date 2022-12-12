@@ -1,0 +1,33 @@
+{% include 'bhead.html' %}
+<div class="text-center h4 mt-5 color=text-danger">Blood Stock</div>
+<div class="row">
+    {% for stock in stocks: %}
+    <div class="col-md-3">
+        <div class="card mt-3 ms-3 p-5">
+            <div class="mt-1">
+                <div class="text-muted" style="font-style:70%">Blood Unit Number</div>
+                <div class="h6">{{stock['blood_Unit_Number']}}</div>
+            </div>
+            <div class="mt-1">
+                <div class="text-muted" style="font-style:70%">BloodBank Name</div>
+                <div class="h6">{% set bloodBank = get_bloodbank_by_Id(stock['bloodbank_id'])%}
+                        {{bloodBank['name']}}
+                </div>
+            </div>
+            <div class="mt-1">
+                <div class="text-muted" style="font-style:70%">Donor Name</div>
+                <div class="h6">{% set donor = get_donor_Id(stock['donor_id'])%}
+                        {{donor['donorname']}}</div>
+            </div>
+            <div class="mt-1">
+                <div class="text-muted" style="font-style:70%">Blood Group</div>
+                <div class="h6">{{stock['bloodGroup']}}</div>
+            </div>
+            <div class="mt-1">
+                <div class="text-muted" style="font-style:70%">Status</div>
+                <div class="h6">{{stock['status']}}</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

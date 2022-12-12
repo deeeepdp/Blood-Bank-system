@@ -1,0 +1,16 @@
+{% include 'bhead.html' %}
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-5 p-5">
+      <form action="bloodDonated1" method="post">
+        <input type="hidden" name="schedule_id" value="{{schedule_id}}">
+        <div class="mb-3 h5">
+          <label for="blood_Unit_Number" class="form-label">Blood Unit Number</label>
+        <input type="number" name="blood_Unit_Number" id="blood_Unit_Number" placeholder="Enter Number" required class="form-control">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+</div>

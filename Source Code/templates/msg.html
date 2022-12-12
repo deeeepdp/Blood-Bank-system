@@ -1,0 +1,14 @@
+{% if session["role"] == 'Admin':%}
+    {% include 'ahead.html' %}
+{% elif session["role"] == 'Doctor':%}
+    {% include 'dhead.html' %}
+{% elif session["role"] == 'BloodBank':%}
+    {% include 'bhead.html'%}
+{% elif session["role"] == 'Donor':%}
+    {% include 'donorhead.html'%}
+{% else:%}
+    {% include 'head.html' %}
+{% endif %}
+<div class="container mt-5 p-5">
+    <div class="text-center h3 {{color}}">{{message}}</div>
+</div>

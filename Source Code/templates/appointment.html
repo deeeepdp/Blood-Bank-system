@@ -1,0 +1,16 @@
+{% include 'donorhead.html' %}
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-5 p-5">
+      <form action="appointment1" method="post">
+        <input type="hidden" name="bloodbank_id" value="{{bloodbank_id}}">
+        <div class="mb-3 h5">
+          <label for="dateTime">Choose Date</label>
+        <input type="datetime-local" name="appointment_date" id="dateTime" class="form-control">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+</div>
